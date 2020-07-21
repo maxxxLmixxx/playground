@@ -1,0 +1,28 @@
+$left-offset: 10vw;
+$right-offset: 5vw;
+
+.header {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #121212;
+}
+
+.header-container {
+  
+  width: 100%;
+
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  grid-template-columns: $left-offset 1fr 1fr $right-offset;
+}
+
+.react-logo {
+  width: 70vh;
+  grid-column: 2;
+}
