@@ -17,9 +17,10 @@ export default function ({ arrowNumber, arrowElement, offset = 8, duration = 600
       from: {
         transform: `translateY(${item.translateYStart}vh) scale(${item.scaleStart})`,
       },
-      to: {
-        transform: `translateY(${item.translateYEnd}vh) scale(${item.scaleEnd})`,
-      },
+      to: [
+        { transform: `translateY(${item.translateYStart}vh) scale(${item.scaleStart})` },
+        { transform: `translateY(${item.translateYEnd}vh) scale(${item.scaleEnd})` },
+      ],
       loop: true,
       config: { duration },
     }))

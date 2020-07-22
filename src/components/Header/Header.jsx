@@ -9,7 +9,29 @@ import ScrollArrows from './ScrollArrows/ScrollArrows'
 import './styles/header-start-page.scss'
 import './styles/header-minimized.scss'
 
-export default function AnimatedHeader({ children }) {
+const AnimatedLeftHeader = (props) => {
+  const transition = useTransition(null, {
+    from: { transform: 'translateX(-100%)' },
+    enter: { transform: 'translateX(0%)' },
+  })
+
+  return transition((style) => {
+    return <animated.div {...props} style={style} />
+  })
+}
+
+const AnimatedRightHeader = (props) => {
+  const transition = useTransition(null, {
+    from: { transform: 'translateX(100%)' },
+    enter: { transform: 'translateX(0%)' },
+  })
+
+  return transition((style) => {
+    return <animated.div {...props} style={style} />
+  })
+}
+
+export default function Header() {
   const [isScrollEvent, setScrollEvent] = useState(false)
 
   const handleScroll = (e) => {
@@ -22,24 +44,33 @@ export default function AnimatedHeader({ children }) {
     window.addEventListener('wheel', handleScroll)
   }, [])
 
-  const folding = useSpring({
-    height: isScrollEvent ? '10vh' : '100vh',
+  const sizeDecrease = useSpring({
+    height: !isScrollEvent ? '100vh' : '10vh',
   })
 
-  const transitions = useTransition(isScrollEvent, null, {
-    from: { transform: `scale(0)` },
-    enter: { transform: `scale(1)` },
-    leave: { transform: `scale(0)` },
+  const bubble = useSpring({
+    transform: !isScrollEvent ? 'translateY(0vh)' : 'translateY(-40vh)',
   })
 
   return (
-    <animated.header className="header" style={folding}>
-      <div className="header-container">
-        {transitions.map(({ props }) => (
-          <animated.img className="react-logo" src={ReactLogo} alt="react-logo" style={props} />
-        ))}
-        {isScrollEvent ? <></> : <ScrollArrows arrowNumber={5} arrowElement={Arrow} />}
-      </div>
-    </animated.header>
+    <>
+      <animated.header className="header" style={sizeDecrease}>
+        {isScrollEvent && (
+          <AnimatedLeftHeader className="left-header">
+            <img className="react-logo-little" src={ReactLogo} alt="react-logo" />
+          </AnimatedLeftHeader>
+        )}
+
+        {isScrollEvent && (
+          <AnimatedRightHeader className="right-header" />
+
+        )}
+
+        <animated.div className="header-start" style={bubble}>
+          <img className="react-logo" src={ReactLogo} alt="react-logo" />
+          <ScrollArrows arrowNumber={5} arrowElement={Arrow} />
+        </animated.div>
+      </animated.header>
+    </>
   )
 }
