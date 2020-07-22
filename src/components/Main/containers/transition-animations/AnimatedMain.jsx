@@ -4,8 +4,8 @@ import { useTransition, animated } from 'react-spring'
 export default (props) => {
   const { subscribe, refAnimation, ...rest } = props
   const transition = useTransition(subscribe, {
-    from: { transform: 'translateY(-100vh)' },
-    enter: { transform: 'translateY(0vh)' },
+    from: { transform: 'scale(0)' },
+    enter: { transform: 'scale(1)' },
   })
   return transition((animation, item) => item && <animated.div {...rest} style={animation} />)
 }
