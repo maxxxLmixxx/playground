@@ -1,0 +1,12 @@
+$header-height: 7vh;
+$main-height: 93vh;
+
+$header-background: #121212;
+
+:export {
+  headerHeight: $header-height;
+  mainHeight: $main-height;
+  headerBackground: $header-background;
+}
+
+

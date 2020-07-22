@@ -1,49 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { useSpring, useTransition, useChain, animated } from 'react-spring'
+/* eslint-disable react/jsx-pascal-case */
+import React, { useRef } from 'react'
+import { useSpring, useChain, animated } from 'react-spring'
 
+//files
 import ReactLogo from '../../assets/images/react-logo.png'
 import Arrow from '../../assets/images/down-arrow.svg'
-
+import PortalLogo from 'assets/images/portal-logo.png'
+//styles
+import './styles/header-general.scss'
+//scss configuration
+import { headerHeight, headerBackground } from '_config.scss'
+//components
 import ScrollArrows from './ScrollArrows/ScrollArrows'
+//animation components
+import $HeaderStart from './containers/transition-animations/AnimatedHeaderStart'
+import $LeftHeader from './containers/transition-animations/AnimatedLeftHeader'
+import $RightHeader from './containers/transition-animations/AnimatedRightHeader'
 
-import './styles/header-start-page.scss'
-
-const AnimatedLeftHeader = (props) => {
-  const transition = useTransition(null, {
-    from: { opacity: 0, transform: 'translateX(-100%)' },
-    enter: { opacity: 1, transform: 'translateX(0%)' },
-    leave: { opacity: 0 },
-    ref: props.refAnimation,
-  })
-
-  return transition((style) => {
-    return <animated.div {...props} style={style} />
-  })
-}
-
-const AnimatedRightHeader = (props) => {
-  const transition = useTransition(null, {
-    from: { transform: 'translateX(10vh)' },
-    enter: { transform: 'translateX(0vh)' },
-    ref: props.refAnimation,
-  })
-
-  return transition((style) => {
-    return <animated.div {...props} style={style} />
-  })
-}
-
-const AnimatedHeaderStart = (props) => {
-  const transition = useTransition(null, {
-    from: { transform: 'translateY(-100vh)' },
-    enter: { transform: 'translateY(0vh)' },
-    leave: { transform: 'translateY(20vh)' },
-    ref: props.refAnimation,
-  })
-  return transition((animation) => <animated.div {...props} style={animation}></animated.div>)
-}
-
-export default function Header() {
+export default function Header({ isScrollEvent }) {
   const refs = {
     sizeDecrease: useRef(),
     bubbleHeader: useRef(),
@@ -51,41 +25,33 @@ export default function Header() {
     rightHeader: useRef(),
   }
 
-  const [isScrollEvent, setScrollEvent] = useState(false)
-
-  const handleScroll = (e) => {
-    if (e.deltaY < 0) return
-    window.removeEventListener('wheel', handleScroll)
-    setScrollEvent(true)
-  }
-
-  useEffect(() => {
-    window.addEventListener('wheel', handleScroll)
-  }, [])
-
   const sizeDecrease = useSpring({
-    height: !isScrollEvent ? '100vh' : '7vh',
+    height: !isScrollEvent ? '100vh' : `${headerHeight}`,
+    color: !isScrollEvent ? headerBackground : `green`,
     ref: refs.sizeDecrease,
   })
 
-  useChain([refs.sizeDecrease, refs.bubbleHeader, refs.leftHeader, refs.rightHeader])
+  useChain([refs.sizeDecrease, refs.leftHeader, refs.rightHeader])
 
   return (
     <>
-      <animated.header className="header" style={sizeDecrease}>
-        {isScrollEvent && (
-          <>
-            <AnimatedLeftHeader refAnimation={refs.leftHeader} className="left-header">
-              <img className="react-logo--small" src={ReactLogo} alt="react-logo" />
-            </AnimatedLeftHeader>
-            <AnimatedRightHeader refAnimation={refs.rightHeader} className="right-header" />
-          </>
-        )}
-
-        <AnimatedHeaderStart refAnimation={refs.bubbleHeader} className="header-start">
+      <animated.header
+        className="header"
+        style={!isScrollEvent ? sizeDecrease : { ...sizeDecrease, minHeight: '40px' }}
+      >
+        <$HeaderStart subscribe={isScrollEvent} refAnimation={refs.bubbleHeader} className="header-start">
           <img className="react-logo" src={ReactLogo} alt="react-logo" />
           <ScrollArrows arrowNumber={5} arrowElement={Arrow} />
-        </AnimatedHeaderStart>
+        </$HeaderStart>
+
+        <$LeftHeader subscribe={isScrollEvent} refAnimation={refs.leftHeader} className="left-header">
+          <img className="react-logo--small" src={ReactLogo} alt="react-logo" />
+        </$LeftHeader>
+
+        <$RightHeader subscribe={isScrollEvent} refAnimation={refs.rightHeader} className="right-header">
+          <div className="portal-text">Portal 2</div>
+          <img className="portal-logo" src={PortalLogo} alt="portal-logo" />
+        </$RightHeader>
       </animated.header>
     </>
   )

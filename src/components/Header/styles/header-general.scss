@@ -1,3 +1,7 @@
+@import '../../../config';
+@import './header-left';
+@import './header-right';
+
 $left-offset: 10vw;
 $right-offset: 5vw;
 
@@ -7,15 +11,21 @@ $heder-second-color: rgba(255, 255, 255, 0.1);
   width: 100vw;
   height: 100vh;
 
+  min-height: 800px;
+
+  overflow: hidden;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  background-color: #121212;
+  background-color: $header-background;
 }
 
 .header-start {
   width: 100%;
+
+  position: absolute;
 
   display: grid;
   align-items: center;
@@ -26,29 +36,6 @@ $heder-second-color: rgba(255, 255, 255, 0.1);
 
 .react-logo {
   width: 70vh;
+  min-width: 500px;
   grid-column: 2;
-}
-
-.react-logo--small {
-  height: 100%;
-}
-
-.left-header {
-  width: 10vw;
-  height: 100%;
-
-  display: flex;
-  justify-content: center;
-
-  // background: $heder-second-color;
-}
-
-.right-header {
-  width: 10vw;
-  height: 100%;
-
-  display: flex;
-  justify-content: center;
-
-  // background: $heder-second-color;
 }
