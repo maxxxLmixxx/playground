@@ -1,39 +1,28 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from "react";
-import $Main from "./containers/transition-animations/AnimatedMain";
+import React from 'react'
+import $Main from './containers/transition-animations/AnimatedMain'
 
-import pBody from "assets/images/main/p-body.jpg";
-import atlas from "assets/images/main/atlas.jpg";
+import pBody from 'assets/images/main/p-body.jpg'
+import atlas from 'assets/images/main/atlas.jpg'
 
-import "./styles/main-general.scss";
-
-const LeftMain = (props) => {
-  return <div {...props}></div>
-}
-const RightMain = (props) => {
-  return <div {...props}></div>
-}
+import './styles/main-general.scss'
 
 export default function Main({ isScrollEvent }) {
   return (
     <>
       <$Main subscribe={isScrollEvent} className="main-wrapper main-container">
-        <LeftMain>
-          <img
-            className="main-image main-image--left"
-            src={pBody}
-            alt="p-body"
-          />
-        </LeftMain>
+        <div className="main-block main-block-1">
+          <img className="main-image" src={pBody} alt="p-body" />
+        </div>
 
-        <RightMain>
-          <img
-            className="main-image main-image--right"
-            src={atlas}
-            alt="atlas"
-          />
-        </RightMain>
+        <div className="main-block main-block-2">
+          <img className="main-image" src={atlas} alt="atlas" />
+        </div>
+
+        <div className="main-block main-block-3">
+          <img className="main-image" src={atlas} alt="atlas" />
+        </div>
       </$Main>
     </>
-  );
+  )
 }

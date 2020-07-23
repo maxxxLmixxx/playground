@@ -2,22 +2,41 @@
 
 .main-wrapper {
   margin: 0 auto;
-  max-width: 1284px;
+  width: 100vw;
+  max-width: 1500px;
 }
 
 .main-container {
   width: 100%;
 
   display: flex;
+  flex-direction: column;
   background: #fff;
 }
 
+.main-block {
+  width: 100%;
+  display: flex;
+
+}
+
+.main-block-1 {
+  justify-content: flex-start;
+  background: blue;
+}
+
+.main-block-2 {
+  justify-content: flex-end;
+  background: red;
+}
+
+.main-block-3 {
+  justify-content: flex-start;
+  background: green;
+}
+
 .main-image {
-  width: 10%;
+  height: 90vh;
+  margin-top: 1vh;
 }
 
-.main-image--left {
-}
-
-.main-image--right {
-}
