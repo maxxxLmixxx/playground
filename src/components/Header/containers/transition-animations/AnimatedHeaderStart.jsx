@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTransition, animated } from 'react-spring'
 
-export default (props) => {
+export default function $HeaderStart(props) {
   const { subscribe, refAnimation, ...rest } = props
   const transition = useTransition(subscribe, {
     from: { transform: 'translateY(-100vh)' },

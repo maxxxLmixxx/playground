@@ -7,7 +7,7 @@ import atlas from 'assets/images/main/atlas.jpg'
 
 import './styles/main-general.scss'
 
-export default function ({ isScrollEvent }) {
+export default function Main({ isScrollEvent }) {
   return (
     <>
       <$Main subscribe={isScrollEvent} className="main-container">

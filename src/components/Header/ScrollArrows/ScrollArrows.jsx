@@ -3,7 +3,7 @@ import { useSprings, animated } from 'react-spring'
 
 import './scroll-animation-container.scss'
 
-export default function ({ arrowNumber, arrowElement, offset = 8, duration = 600 }) {
+export default function ScrollArrows({ arrowNumber, arrowElement, offset = 8, duration = 600 }) {
   const arrowConfig = Array.from({ length: arrowNumber }).map((_, i) => ({
     translateYStart: i * offset,
     translateYEnd: (i + 1) * offset,
