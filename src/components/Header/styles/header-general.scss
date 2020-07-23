@@ -11,7 +11,7 @@ $heder-second-color: rgba(255, 255, 255, 0.1);
   width: 100vw;
   height: 100vh;
 
-  min-height: 800px;
+  min-height: 50%;
 
   overflow: hidden;
 
@@ -26,16 +26,16 @@ $heder-second-color: rgba(255, 255, 255, 0.1);
   width: 100%;
 
   position: absolute;
+  overflow: hidden;
 
   display: grid;
   align-items: center;
-  overflow: hidden;
 
   grid-template-columns: $left-offset 1fr 1fr $right-offset;
 }
 
 .react-logo {
   width: 70vh;
-  min-width: 500px;
+  min-width: 40%;
   grid-column: 2;
 }

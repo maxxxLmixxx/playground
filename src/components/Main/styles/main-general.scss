@@ -1,7 +1,9 @@
 @import '../../../config';
 
 .main-container {
-  width: 100vw;
-  height: $main-height;
+  width: 100%;
+
+  display: grid;
+
   background: #fff;
 }
