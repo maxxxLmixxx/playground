@@ -37,7 +37,7 @@ export default function Header({ isScrollEvent }) {
     <>
       <animated.header
         className="header"
-        style={!isScrollEvent ? sizeDecrease : { ...sizeDecrease, minHeight: '40px', position: 'static' }}
+        style={!isScrollEvent ? sizeDecrease : { ...sizeDecrease, minHeight: '30px', maxHeigh: '50px', position: 'static' }}
       >
         <$HeaderStart subscribe={isScrollEvent} refAnimation={refs.bubbleHeader} className="header-start">
           <img className="react-logo" src={ReactLogo} alt="react-logo" />

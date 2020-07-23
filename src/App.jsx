@@ -20,9 +20,9 @@ export default function App() {
   }, [])
 
   return (
-    <div className="wrapper-container">
+    <>
       <Header isScrollEvent={isScrollEvent} />
       <Main isScrollEvent={isScrollEvent} />
-    </div>
+    </>
   )
 }
