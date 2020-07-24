@@ -13,7 +13,7 @@ export default function Main({ isScrollEvent }) {
     <>
       <$Main subscribe={isScrollEvent} className="main-wrapper main-container">
         <div className="main-block main-block-1">
-          <img className="main-image" src={pBody} alt="p-body" />
+          <img className="main-image white-shadow" src={pBody} alt="p-body" />
           <p>
             P-body (referred to as Orange by GLaDOS), is Atlas' tall and wiry partner in testing, and is one of the two
             playable android Test Subjects built by GLaDOS for the Cooperative Testing Initiative in Portal 2, which was
