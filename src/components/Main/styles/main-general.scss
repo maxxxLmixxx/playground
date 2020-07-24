@@ -17,22 +17,12 @@
 .main-block {
   width: 100%;
   display: flex;
-
+  align-items: center;
+  justify-content: space-between;
 }
 
-.main-block-1 {
-  justify-content: flex-start;
-  background: blue;
-}
-
-.main-block-2 {
-  justify-content: flex-end;
-  background: red;
-}
-
-.main-block-3 {
-  justify-content: flex-start;
-  background: green;
+.main-block--reverse {
+  flex-direction: row-reverse;
 }
 
 .main-image {
@@ -40,3 +30,29 @@
   margin-top: 1vh;
 }
 
+p {
+  width: 50%;
+  margin: 10%;
+  font: 2rem 'DIN', Helvetica, Sans-Serif;
+  color: #121212; 
+}
+
+@media (min-height: 1500px) {
+  .main-image {
+    height: auto;
+  }
+}
+
+@media (min-width: 1000px) {
+  p {
+    max-height: 200px;
+  }
+}
+
+@media (max-height: 500px) {
+  
+  p {
+    font-size: 50%;
+    max-height: 30vh;
+  }
+}
