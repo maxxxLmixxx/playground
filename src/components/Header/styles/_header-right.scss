@@ -1,4 +1,4 @@
-@import "../../../config";
+@import '../../../config';
 
 .right-header {
   width: auto;
@@ -13,24 +13,12 @@
 }
 
 .portal-logo {
-  // height: 4vh;
   height: 70%;
-  // height: $header-height*0.6;
   margin-left: 5px;
 }
 
 .portal-text {
   color: white;
-  // font-size: 4vh;
   font-size: 2rem;
-  // display: flex;
-  // align-items: center;
-  // font-size: $header-height*0.6;
-  font-family: "DIN";
-}
-
-@media (max-height: 500px) {
-  .portal-text {
-    font-size: 1.3rem;
-  }
+  font-family: 'DIN';
 }
