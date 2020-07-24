@@ -1,7 +1,11 @@
 $header-height: 7vh;
 $main-height: 93vh;
 
+$root-background: #fa12fa;
 $header-background: #121212;
+$main-background: #fafafa10;
+$main-text-color: white;
+// $main-background: #61dafb48;
 
 :export {
   headerHeight: $header-height;

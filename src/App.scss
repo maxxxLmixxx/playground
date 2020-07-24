@@ -1,6 +1,13 @@
 @import './fonts';
+@import './config';
 
 .wrapper-container {
   overflow: hidden;
   background: #000;
+}
+
+#root {
+  background-color: $root-background;
+  background-color: #7c2951;
+  background-image: linear-gradient(315deg, #7c2951 50%, #000000 50%);
 }

@@ -8,10 +8,14 @@
 
 .main-container {
   width: 100%;
+  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
-  background: #fff;
+
+  padding: 0 1vw;
+  background: $main-background;
+  box-shadow: 0px 0px 50px black;
 }
 
 .main-block {
@@ -26,19 +30,26 @@
 }
 
 .main-image {
-  height: 90vh;
+  height: auto;
+  max-height: 90vh;
+  max-width: 50%;
   margin-top: 1vh;
 }
 
 p {
   width: 50%;
+  min-width: 300px;
   margin: 10%;
   font: 3vh 'DIN', Helvetica, Sans-Serif;
 
   text-align: justify;
   text-justify: auto;
 
-  color: #121212;
+  color: $main-text-color;
+}
+
+main img {
+  border: 7px solid #fcf8eee3;
 }
 
 @media (min-height: 1500px) {

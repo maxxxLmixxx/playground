@@ -7,5 +7,5 @@ export default function $Main(props) {
     from: { transform: 'scale(0)' },
     enter: { transform: 'scale(1)' },
   })
-  return transition((animation, item) => item && <animated.div {...rest} style={animation} />)
+  return transition((animation, item) => item && <animated.main {...rest} style={animation} />)
 }
