@@ -38,9 +38,10 @@
 
 p {
   width: 50%;
-  min-width: 300px;
+  max-width: 50%;
+
   margin: 10%;
-  font: 3vh 'DIN', Helvetica, Sans-Serif;
+  font: 2vh 'DIN', Helvetica, Sans-Serif;
 
   text-align: justify;
   text-justify: auto;
@@ -49,7 +50,9 @@ p {
 }
 
 main img {
-  border: 5px solid #fcf8eee3;
+  min-width: 40%;
+  max-height: auto;
+  box-shadow: 0px 0px 10px white;
 }
 
 @media (min-height: 1500px) {
@@ -60,3 +63,4 @@ main img {
     font-size: 2rem;
   }
 }
+
